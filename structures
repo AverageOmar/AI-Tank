@@ -1,0 +1,31 @@
+#pragma once
+#include "..\Waypoint.h"
+#include "..\WaypointManager.h"
+
+struct EdgeCost
+{
+	Waypoint* origin;
+	Waypoint* destination;
+	double length;
+
+	EdgeCost(Waypoint * from, Waypoint * to, double newCost)
+	{
+		origin = from;
+		destination = to;
+		length = newCost;
+	}
+};
+
+struct AStarNode
+{
+	Waypoint* currentNode;
+	AStarNode* parentNode;
+	double length;
+
+	AStarNode(Waypoint* currentWaypoint, AStarNode* parentalWaypoint, double newCost)
+	{
+		currentNode = currentWaypoint;
+		parentNode = parentalWaypoint;
+		length = newCost;
+	}
+};
